@@ -19,7 +19,9 @@
 </tr>
 </table>
 <p>Not registered yet? <a href="{% url 'register' %}">Register here</a>.</p>
+
 <input type="hidden" name="next" value="{{ next }}" />
+<p>Forgot password? <a href="{% url 'password_reset' %}">Reset you password here</a>.</p>
 {% csrf_token %}
 </form>
 
