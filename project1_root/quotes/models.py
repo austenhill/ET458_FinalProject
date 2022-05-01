@@ -8,31 +8,35 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 STATUS_CHOICES = (
-    ('NEW', 'New Site'),
-    ('EX', 'Existing Site')
+    ('FR', 'Freshman'),
+    ('SP', 'Sophmore'),
+    ('JR', 'Junior'),
+    ('SR', 'Senior')
 )
 
 PRIORITY_CHOICES = (
-    ('U', 'Urgent - 1 week or less'),
-    ('N', 'Normal - 2 to 4 weeks'),
-    ('L', 'Low - Still Researhing')
+    ('1', '2015'),
+    ('2', '2016'),
+    ('3', '2017'),
+    ('4', '2018'),
+    ('5', '2019'),
+    ('6', '2020'),
+    ('7', '2021'),
+    ('8', '2022')
 )
 
 class Quote(models.Model):
     name = models.CharField(max_length=100)
-    position = models.CharField(max_length=60, blank=True)
-    company = models.CharField(max_length=60, blank=True)
-    address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     email = models.EmailField()
-    web = models.URLField(blank=True)
-    description = models.TextField()
-    sitestatus = models.CharField(max_length=20, choices=STATUS_CHOICES)
-    priority = models.CharField(max_length=40, choices=PRIORITY_CHOICES)
-    jobfile = models.FileField(upload_to='uploads/', blank=True)
-    submitted = models.DateField(auto_now_add=True)
-    quotedate = models.DateField(blank=True, null=True)
-    quoteprice = models.DecimalField(decimal_places=2, max_digits=7, blank=True, default=0)
+    bio = models.TextField()
+    major = models.CharField(max_length=60, blank=True)
+    classification = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    graduation = models.CharField(max_length=40, choices=PRIORITY_CHOICES)
+    skills = models.TextField()
+    languages = models.CharField(max_length=100)
+    experience = models.TextField()
+    picture = models.FileField(upload_to='uploads/', blank=True)
     username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):

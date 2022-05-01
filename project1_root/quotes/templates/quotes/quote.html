@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Quote Request{% endblock title %}
+{% block title %}Student Profile{% endblock title %}
 
 {% block sidenav %}
     {% for page in page_list %}
@@ -9,10 +9,10 @@
 {% endblock sidenav %}
 
 {% block content %}
-<h1>Quote Request</h1>
+<h1>Profile</h1>
 
 {% if submitted %}
-    <p class="success">Your quote was submitted successfully!</p>
+    <p class="success">Your profile was changed successfully!</p>
 {% else %}
     <form action="" enctype="multipart/form-data" method="post" novalidate>
         <table>

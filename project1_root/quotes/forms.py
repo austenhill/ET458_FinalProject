@@ -9,7 +9,6 @@ class QuoteForm(ModelForm):
     class Meta:
         model = Quote
         fields = [
-            'name', 'position', 'company', 'address',
-            'phone', 'email', 'web', 'description', 
-            'sitestatus', 'priority', 'jobfile'
+            'name', 'phone', 'email', 'bio', 'major', 'classification', 'graduation', 
+            'skills', 'languages', 'experience', 'picture'
         ]

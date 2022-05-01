@@ -3,26 +3,25 @@ from .models import Quote
 
 # Register your models here.
 class QuoteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'company', 'submitted', 'quotedate', 'quoteprice')
-    list_filter = ('submitted', 'quotedate')
-    readonly_fields = ('submitted',)
+    list_display = ('id', 'name', 'major', 'classification', 'email', 'username')
+    list_filter = ('name', 'major')
     fieldsets = (
         (None, {
             "fields": (
-                'name', 'email', 'description'
+                'name', 'bio', 'skills', 'languages', 'experience', 'picture'
             ),
         }),
         ('Contact Information', {
             'classes': ('collapse',),
-            'fields': ('position', 'company', 'address', 'phone', 'web')
+            'fields': ('phone', 'email')
         }),
-        ('Job Information', {
+        ('Class Information', {
             'classes': ('collapse',),
-            'fields': ('sitestatus', 'priority', 'jobfile', 'submitted')
+            'fields': ('major', 'classification', 'graduation')
         }),
         ('Quote Admin', {
             'classes': ('collapse',),
-            'fields': ('quotedate', 'quoteprice', 'username')
+            'fields': ('username',)
         }),
     )
     
